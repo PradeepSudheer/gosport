@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About</title>
+    <link rel="stylesheet" type = "text/css" href="../assets/stylesheets/style.css">
+  </head>
+  <body>
+    <%-include('partials/header.ejs');%>
+
+    <%-include('partials/navigation.ejs');%>
+    <main class="main">
+      <div class="overview">
+        <p>
+          GoSport is a platform for all sports & fitness enthusiasts. Gosport is one step solution for finding playpals and booking venues. We help you
+           to stay fit & active and have fun while doing it. Put on your sneakers and get access to over 100000 sports enthusiasts & over 1500 venues in USA.
+
+        </p>
+        <form class="join-here" action="savedconnections" >
+          <button class = "button button5" type="submit" name="button">Join Here</button>
+        </form>
+
+      </div>
+    </main>
+    <%- include('partials/footer.ejs'); -%>
+  </body>
+</html>

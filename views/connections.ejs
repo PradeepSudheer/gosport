@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Connections</title>
+    <link rel="stylesheet" type = "text/css" href="../assets/stylesheets/style.css">
+  </head>
+  <body>
+
+    <%- include('partials/header.ejs'); -%>
+
+    <%- include('partials/navigation.ejs'); -%>
+
+    <main>
+      <p class = "user-help-1"> Click on the Links to view events </p>
+      <div class="Filter-div">
+        <button class = "button button6 still-not-allowed" type="button" name="button">Filter</button>
+      </div>
+      <ul>
+        <% for(j=0;j<categories.length;++j){ %>
+          <li class="card">
+            <h2><%= categories[j] %> </h2>
+            <!-- <img class = "image" src="../assets/images/aquatic-sports.jpeg" alt=""> -->
+            <%for(i=0;i<qs.length; i++){ %>
+                    <% if(qs[i].ConnectionCategory== categories[j]){ %>
+                      <a href="connection?ID=<%= qs[i].ConnectionID %>">&bull; <%= qs[i].Sport %></a>
+                    <% } %>
+                    <% } %>
+          </li>
+        <% } %>
+
+
+      </ul>
+    </main>
+
+    <%- include('partials/footer.ejs'); -%>
+
+  </body>
+</html>

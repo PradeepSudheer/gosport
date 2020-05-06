@@ -1,0 +1,20 @@
+<header class="header">
+  <a href="/"><img class = "Logo" src="../../assets/images/logo.png" alt="gosport"></a>
+  <% if(session != undefined) { %>
+    <nav class="navBar">
+      <ul>
+        <li><a href="../newConnection">Create New Event</a></li>
+        <li><a href="../savedconnections">Connections</a></li>
+        <li><a href="/logout">SignOut</a></li>
+      </ul>
+    </nav>
+  <% } else { %>
+    <nav class="navBar">
+    <ul>
+      <li><a class = "still-not-set" href="../newConnection" >Create New Event</a></li>
+      <li><a href="../login">         Login</a></li>
+      <li><a href="../login">         Sign Up</a></li>
+    </ul>
+  </nav>
+  <% } %>
+</header>

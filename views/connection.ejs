@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>connection</title>
+    <link rel="stylesheet" type = "text/css" href="../assets/stylesheets/style.css">
+  </head>
+  <body>
+    <%- include('partials/header.ejs'); -%>
+
+    <%- include('partials/navigation.ejs'); -%>
+
+      <div class="connection-title">
+          <span class=""><%= qs.getConnectionCategory %></span>
+      </div>
+      <div class="sports-group">
+        <div class="connectioncard">
+          <div class="sport-name"><%= qs.getSport %></div>
+          <div class="row">
+            <div class="column1">
+              <img class = "profile-image" src="<%= qs.getImageurl %>" alt="">
+            </div>
+            <div class="column2">
+              <%= qs.getHost %> <br><%= qs.getdateAndTime %> <br><%= qs.getLocation %> <br>
+            </div>
+
+            <div class="column3">
+              &nbsp;&nbsp;&nbsp;&nbsp; Ready to play? <br>
+              <form action = "<% if(session!=undefined){ %>
+                      savedconnections?ID=<%=qs.getConnectionID%>&action=<%=action%>
+                      <% } else { %>
+                      login
+                    <% } %>" method = "<% if(session!=undefined){ %>post<%} else{ %>get<%} %>">
+
+                <button class = "button"  name="response" value = "yes">Yes</button>
+                <button class = "button button2"  name="response" value = "no">No</button>
+                <button class = "button button3"  name="response" value = "maybe">Maybe</button>
+              </form>
+              8 players already joined the event.
+            </div>
+            <div class="column4">
+              <b>About host</b>
+              <p>Experiencelevel beginner</p>
+              <p>8 events hosted</p>
+            </div>
+            </div>
+            <div class="Details">
+              <h4>Details</h4>
+              <p> <%= qs.getDescription %>  </p>
+            </div>
+
+        </div>
+
+      </div>
+
+
+
+    <%-include('partials/footer.ejs') -%>
+  </body>
+</html>

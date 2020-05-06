@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>savedconnections</title>
+    <link rel="stylesheet" type = "text/css" href="../assets/stylesheets/style.css">
+  </head>
+  <body>
+    <%- include('partials/savedconnectionsheader.ejs'); -%>
+
+    <%- include('partials/savedconnectionsnavigation.ejs'); -%>
+
+    <div class="saved-events-header">
+      <h3><span>Saved Events</span></h3>
+    </div>
+
+    <div class="saved-events">
+      <table class = "saved-events-table">
+        <tr>
+          <th>Sport-Category</th>
+          <th>Sport-Name</th>
+          <th>Response</th>
+          <th>Changes</th>
+        </tr>
+
+        <% userProfileSession.getConnectionsList().forEach(function(item){ %>
+          <tr>
+            <td><%= item.getConnection.getConnectionCategory %></td>
+            <td><%= item.getConnection.getSport %></td>
+            <td><%= item.getRsvp %></td>
+            <td><form class=""  >
+              <button class = "up-cancel-form button button4" formmethod = "post" formaction = "./connection?ID=<%=item.getConnection.getConnectionID%>&action=update"  >Update</button>
+              <button class = " up-cancel-form button button2 button4" formmethod = "post" formaction = "savedconnections?ID=<%=item.getConnection.getConnectionID%>&action=delete" >Delete</button>
+            </form>
+              </td>
+          </tr>
+        <% })  %>
+
+
+      </table>
+    </div>
+
+
+    <%- include('partials/footer.ejs'); -%>
+
+  </body>
+</html>

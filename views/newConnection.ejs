@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Connection</title>
+    <link rel="stylesheet" type = "text/css" href="../assets/stylesheets/style.css">
+  </head>
+  <body>
+    <%- include('partials/header.ejs'); -%>
+
+    <%- include('partials/navigation.ejs'); -%>
+
+    <div class="error-message" style="color:red">
+      <% if(errorMsg.length>0){ %>
+        <% errorMsg.forEach(function(item){ %>
+          <p><span><%= item.msg %></span></p>
+        <% }); %>
+      <% } %>
+    </div>
+    <div class="newconnectionform">
+      <form class="connectionform" action="addconnection" method="post">
+        <div class="row">
+          <div class="col-25">
+            <label for="topic">Sport Category</label>
+          </div>
+
+          <div class="col-75">
+            <input type="text" name="topic" placeholder="Sport_Category" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Sport-Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="name" placeholder="Sport-Name" required>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="host">Host</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="host" placeholder="Host" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="details">Description</label>
+            </div>
+            <div class="col-75">
+              <textarea name="details" placeholder="Description" style="height:200px" required></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="location">LOCATION</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="location" placeholder="Location" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="date">DATE</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="date" placeholder="MM/DD/YYYY" onfocus="(this.type='date')" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <input type="submit"  value="Submit">
+          </div>
+      </form>
+    </div>
+
+
+
+    <%- include('partials/footer.ejs'); -%>
+  </body>
+</html>

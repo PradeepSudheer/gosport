@@ -1,0 +1,86 @@
+db.dropDatabase();
+use gosport
+db.createCollection('connections');
+db.createCollection('userprofiles');
+db.createCollection('users');
+db.users.insertOne(
+	{
+		"userID" : "Walter",
+        "firstName" : "heisenberg",
+        "lastName" : "Werner",
+        "emailAddress" : "pchelama@uncc.edu",
+        "address1Field" : "9501 university terrace drive",
+        "address2Field" : "Apt C",
+        "city" : "Charlotte",
+        "state" : "NC",
+        "postCode" : "28262",
+        "country" : "US"
+	}
+);
+
+db.connections.insertMany([
+{
+        "_id" : ObjectId("5ea12817cb9405a98b682911"),
+		      "userID" : "Walter",
+        "ConnectionID" : 1,
+        "ConnectionCategory" : "AquaticSports",
+        "Sport" : "Swimming",
+        "Description" : "5vs5 match on 31st January, 5:00 AM at FootyMonks. Game would be for 2 hours. Price for the Turf is shared evenly among players.",
+        "Host" : "Heisenberg",
+        "Location" : "FootyMonks",
+        "dateAndTime" : "November 25th,2019 10:30am-2:00pm",
+        "Imageurl" : "../assets/images/heisenberg.jpg"
+},
+{
+        "_id" : ObjectId("5ea12817cb9405a98b682912"),
+		      "userID" : "Walter",
+        "ConnectionID" : 2,
+        "ConnectionCategory" : "BallSports",
+        "Sport" : "Soccer",
+        "Description" : "5vs5 match on 31st January, 5:00 AM at FootyMonks. Game would be for 2 hours. Price for the Turf is shared evenly among players.",
+        "Host" : "fring",
+        "Location" : "mecklenberg",
+        "dateAndTime" : "November 25th,2019 10:30am-2:00pm",
+        "Imageurl" : "../assets/images/heisenberg.jpg"
+},
+{
+        "_id" : ObjectId("5ea1c429cb9405a98b682913"),
+		      "userID" : "Walter",
+        "ConnectionID" : 3,
+        "ConnectionCategory" : "AquaticSports",
+        "Sport" : "MarcoPolo",
+        "Description" : "5vs5 match on 31st January, 5:00 AM at FootyMonks. Game would be for 2 hours. Price for the Turf is shared evenly among players.",
+        "Host" : "Heisenberg",
+        "Location" : "FootyMonks",
+        "dateAndTime" : "November 25th,2019 10:30am-2:00pm",
+        "Imageurl" : "../assets/images/heisenberg.jpg"
+},
+{
+        "_id" : ObjectId("5ea1c429cb9405a98b682914"),
+		      "userID" : "Walter",
+        "ConnectionID" : 4,
+        "ConnectionCategory" : "BallSports",
+        "Sport" : "Cricket",
+        "Description" : "5vs5 match on 31st January, 5:00 AM at FootyMonks. Game would be for 2 hours. Price for the Turf is shared evenly among players.",
+        "Host" : "fring",
+        "Location" : "mecklenberg",
+        "dateAndTime" : "November 25th,2019 10:30am-2:00pm",
+        "Imageurl" : "../assets/images/heisenberg.jpg"
+
+}]);
+
+db.userprofiles.insertOne(
+      {
+          userID:"Walter",
+         userConnections:[
+				{
+                 connectionID:1,
+                 rsvp:'yes'
+              },
+              {
+                  connectionID:4,
+                 rsvp:'no'
+            }
+       ]
+     }
+ );
